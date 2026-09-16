@@ -1,13 +1,247 @@
-<h1> Online Curriculum Vitae - ITE 386 Cloud Programming </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<ul>
-    <li><a href="AbalosCV.html" target="_blank">CV 1 - Abalos</a></li>
-    <li><a href="AquinoCV.html" target="_blank">CV 2 - Aquino</a></li>
-    <li><a href="DoradoCV.html" target="_blank">CV 3 - Dorado</a></li>
-</ul>
-<li><a href="FernandezCV.html" target="_blank">CV 4 - Fernandez</a></li>
-</ul>
-<li><a href="VidalCV.html" target="_blank">CV 5 - Vidal</a></li>
-</ul>
-<li><a href="ZabalaCV.html" target="_blank">CV 6 - Zabala</a></li>
-</ul>
+    <title>Online Curriculum Vitae - ITE 386</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eef4ff, #dce9ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 18px;
+            padding: 45px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header .icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .cv-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        .cv-list li a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .cv-list li a:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        }
+
+        .cv-number {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .number {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #dbeafe;
+            color: #2563eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .cv-list li a:hover .number {
+            background: white;
+            color: #2563eb;
+        }
+
+        .arrow {
+            font-size: 20px;
+            transition: transform 0.25s ease;
+        }
+
+        .cv-list li a:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .cv-list li a {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="icon">
+                ☁
+            </div>
+
+            <h1>Online Curriculum Vitae</h1>
+
+            <p class="subtitle">
+                ITE 386 - Cloud Programming
+            </p>
+
+        </div>
+
+
+        <ul class="cv-list">
+
+            <li>
+                <a href="AbalosCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">01</span>
+                        CV 1 - Abalos
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="AquinoCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">02</span>
+                        CV 2 - Aquino
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="DoradoCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">03</span>
+                        CV 3 - Dorado
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="FernandezCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">04</span>
+                        CV 4 - Fernandez
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="VidalCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">05</span>
+                        CV 5 - Vidal
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="ZabalaCV.html" target="_blank">
+                    <span class="cv-number">
+                        <span class="number">06</span>
+                        CV 6 - Zabala
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="footer">
+            ITE 386 • Cloud Programming
+        </div>
+
+    </div>
+
+</body>
+</html>
