@@ -1,538 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angelo Karlo M. Aquino — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3f2ee;
+    --surface: #ffffff;
+    --charcoal: #26262a;
+    --charcoal-soft: #46464b;
+    --text: #232326;
+    --text-muted: #6d6d72;
+    --hairline: #e2e0da;
+    --rail-bg: #26262a;
+    --rail-text: #f2f1ee;
+    --rail-text-muted: #b6b5b2;
+    --rail-hairline: rgba(242,241,238,0.14);
+    --accent: #ad7f52;
+    --focus: #ad7f52;
+  }
 
-    <title>Angelo Karlo M. Aquino | Online CV</title>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171a;
+      --surface: #1f1f22;
+      --charcoal: #eceae5;
+      --charcoal-soft: #c7c5c0;
+      --text: #eceae5;
+      --text-muted: #9a999e;
+      --hairline: #35353a;
+      --rail-bg: #101012;
+      --rail-text: #efeeea;
+      --rail-text-muted: #97969b;
+      --rail-hairline: rgba(239,238,234,0.12);
+      --accent: #c89a6c;
+      --focus: #c89a6c;
+    }
+  }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  :root[data-theme="dark"] {
+    --bg: #17171a;
+    --surface: #1f1f22;
+    --charcoal: #eceae5;
+    --charcoal-soft: #c7c5c0;
+    --text: #eceae5;
+    --text-muted: #9a999e;
+    --hairline: #35353a;
+    --rail-bg: #101012;
+    --rail-text: #efeeea;
+    --rail-text-muted: #97969b;
+    --rail-hairline: rgba(239,238,234,0.12);
+    --accent: #c89a6c;
+    --focus: #c89a6c;
+  }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .cv-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #fff;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        /* SIDEBAR */
-        .sidebar {
-            background: #123b5d;
-            color: white;
-            padding: 40px 30px;
-        }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
-        .profile {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
 
-        .profile img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            margin-bottom: 15px;
-        }
+  .cv {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: var(--surface);
+    min-height: 100vh;
+  }
 
-        .profile h1 {
-            font-size: 25px;
-            margin-bottom: 5px;
-        }
+  @media (min-width: 700px) {
+    .cv { margin: 48px auto; min-height: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.08); }
+  }
 
-        .profile p {
-            font-size: 14px;
-            opacity: 0.85;
-        }
+  /* ===== RAIL ===== */
+  .rail {
+    background: var(--rail-bg);
+    color: var(--rail-text);
+    padding: 52px 34px;
+  }
 
-        .sidebar-section {
-            margin-bottom: 30px;
-        }
+  .rail-photo {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    background: var(--rail-hairline);
+    border: 1px solid var(--rail-hairline);
+    margin-bottom: 22px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-        .sidebar-section h2 {
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
+  .rail-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-        .contact-item {
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
+  .rail-photo .initials {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--rail-text-muted);
+  }
 
-        .contact-item strong {
-            display: block;
-            font-size: 12px;
-            opacity: 0.7;
-            text-transform: uppercase;
-        }
+  .rail-name {
+    font-size: 27px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
 
-        .skills {
-            list-style: none;
-        }
+  .rail-role {
+    font-size: 13.5px;
+    color: var(--rail-text-muted);
+    margin-bottom: 40px;
+  }
 
-        .skills li {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
+  .rail-block { margin-bottom: 34px; }
 
-        /* MAIN CONTENT */
-        .main-content {
-            padding: 45px;
-        }
+  .rail-block h2 {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
 
-        .section {
-            margin-bottom: 40px;
-        }
+  .rail-row {
+    margin-bottom: 14px;
+    font-size: 13.5px;
+  }
 
-        .section-title {
-            font-size: 22px;
-            color: #123b5d;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #123b5d;
-        }
+  .rail-row .label {
+    display: block;
+    font-size: 11px;
+    color: var(--rail-text-muted);
+    margin-bottom: 2px;
+  }
 
-        .about {
-            font-size: 15px;
-            color: #555;
-        }
+  .rail-row a { text-decoration: none; }
+  .rail-row a:hover { color: var(--accent); }
 
-        /* TIMELINE */
-        .timeline-item {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 25px;
-            border-left: 2px solid #123b5d;
-        }
+  .skill-list, .lang-list {
+    list-style: none;
+  }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #123b5d;
-            border-radius: 50%;
-            left: -6px;
-            top: 5px;
-        }
+  .skill-list li, .lang-list li {
+    font-size: 13.5px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rail-hairline);
+  }
 
-        .timeline-item h3 {
-            font-size: 17px;
-            color: #222;
-        }
+  .skill-list li:last-child, .lang-list li:last-child { border-bottom: none; }
 
-        .timeline-item .date {
-            font-size: 13px;
-            color: #777;
-            margin-bottom: 5px;
-        }
+  /* ===== MAIN ===== */
+  .main { padding: 52px 46px; }
 
-        .timeline-item p {
-            font-size: 14px;
-            color: #555;
-        }
+  .block { margin-bottom: 44px; }
+  .block:last-child { margin-bottom: 0; }
 
-        /* PROJECTS */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+  .block-title {
+    font-size: 19px;
+    color: var(--charcoal);
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
 
-        .project-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+  .about { color: var(--text-muted); max-width: 62ch; }
 
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
+  .entry {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 26px;
+    border-left: 1px solid var(--hairline);
+  }
+  .entry:last-child { margin-bottom: 0; }
 
-        .project-card h3 {
-            color: #123b5d;
-            margin-bottom: 8px;
-        }
+  .entry::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    left: -4px;
+    top: 6px;
+  }
 
-        .project-card p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
+  .entry.current::before { background: var(--accent); }
 
-        .tech {
-            font-size: 12px;
-            color: #123b5d;
-            font-weight: bold;
-        }
+  .entry h3 {
+    font-size: 15.5px;
+    color: var(--text);
+    font-weight: 600;
+  }
 
-        /* CONTACT */
-        .contact-box {
-            background: #f4f6f8;
-            padding: 25px;
-            border-radius: 8px;
-        }
+  .entry .meta {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin: 3px 0 6px;
+  }
 
-        .contact-box p {
-            margin-bottom: 8px;
-        }
+  .entry p { font-size: 13.5px; color: var(--text-muted); }
 
-        .contact-box a {
-            color: #123b5d;
-            text-decoration: none;
-        }
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-            .cv-container {
-                grid-template-columns: 1fr;
-                margin: 0;
-            }
+  @media (max-width: 560px) { .projects { grid-template-columns: 1fr; } }
 
-            .sidebar {
-                text-align: center;
-            }
+  .project {
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    padding: 20px;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
 
-            .main-content {
-                padding: 30px 20px;
-            }
+  .project:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
 
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
+  .project:hover h3 { color: var(--accent); }
 
-        @media print {
-            body {
-                background: white;
-            }
+  .project h3 {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
 
-            .cv-container {
-                margin: 0;
-                box-shadow: none;
-            }
-        }
-    </style>
+  .project p {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .project .tech {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .connect {
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    padding: 26px 28px;
+  }
+
+  .connect p.lede {
+    color: var(--text-muted);
+    max-width: 56ch;
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  .connect-links { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+
+  .connect-links a {
+    font-size: 13.5px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--charcoal);
+    padding-bottom: 1px;
+  }
+
+  .connect-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  @media (max-width: 700px) {
+    .cv { grid-template-columns: 1fr; }
+    .rail { padding: 40px 28px; }
+    .main { padding: 40px 26px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .cv { margin: 0; box-shadow: none; grid-template-columns: 260px 1fr; }
+  }
+</style>
 </head>
-
 <body>
 
-<div class="cv-container">
+<div class="cv">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+  <aside class="rail">
+    <div class="rail-photo">
+      <img src="profile.jpg" alt="Angelo Karlo M. Aquino" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="initials" style="display:none;">AA</span>
+    </div>
+    <div class="rail-name">Angelo Karlo M. Aquino</div>
+    <div class="rail-role">BS Information Technology Student</div>
 
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Photo">
+    <div class="rail-block">
+      <h2>Contact</h2>
+      <div class="rail-row">
+        <span class="label">Email</span>
+        <a href="mailto:ngme.aquino.up@phinmaed.com">ngme.aquino.up@phinmaed.com</a>
+      </div>
+      <div class="rail-row">
+        <span class="label">Phone</span>
+        +63 956 362 9014
+      </div>
+      <div class="rail-row">
+        <span class="label">Location</span>
+        Sual, Pangasinan, Philippines
+      </div>
+      <div class="rail-row">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/angelog9e" target="_blank" rel="noopener">github.com/angelog9e</a>
+      </div>
+      <div class="rail-row">
+        <span class="label">LinkedIn</span>
+        <a href="https://linkedin.com/in/angelokarloaquino" target="_blank" rel="noopener">linkedin.com/in/angelokarloaquino</a>
+      </div>
+    </div>
 
-            <h1>Angelo Karlo M. Aquino</h1>
-            <p>BS Information Technology Student</p>
+    <div class="rail-block">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li>HTML &amp; CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>Kotlin</li>
+        <li>MySQL</li>
+        <li>Git &amp; GitHub</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </div>
+
+    <div class="rail-block">
+      <h2>Languages</h2>
+      <ul class="lang-list">
+        <li>English</li>
+        <li>Filipino</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="block">
+      <h2 class="block-title">About Me</h2>
+      <p class="about">
+        I am a motivated and responsible student with a strong interest in technology and continuous learning.
+        I have experience working on academic projects involving web development, system design, and networking.
+        I am willing to learn new skills, work collaboratively with others, and take on new challenges.
+        I am organized, adaptable, and committed to completing tasks efficiently and to the best of my ability.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Education</h2>
+
+      <div class="entry current">
+        <h3>Bachelor of Science in Information Technology</h3>
+        <div class="meta">University of Pangasinan, Dagupan City &middot; 2023 – Present</div>
+      </div>
+
+      <div class="entry">
+        <h3>Senior High School</h3>
+        <div class="meta">University of Pangasinan &middot; 2021 – 2023</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Experience</h2>
+
+      <div class="entry current">
+        <h3>Student Developer</h3>
+        <div class="meta">Academic Projects &middot; 2024 – Present</div>
+        <p>Developed web and mobile applications as part of academic projects. Worked with frontend interfaces, backend logic, databases, and system functionality.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Projects</h2>
+
+      <div class="projects">
+        <div class="project">
+          <h3>BlockBLitz</h3>
+          <p>Add a short description — what it does and the problem it solves.</p>
+          <div class="tech">Python</div>
         </div>
 
-        <div class="sidebar-section">
-            <h2>Contact</h2>
-
-            <div class="contact-item">
-                <strong>Email</strong>
-                ngme.aquino.up@phinmaed.com
-            </div>
-
-            <div class="contact-item">
-                <strong>Phone</strong>
-                +63 956 362 9014
-            </div>
-
-            <div class="contact-item">
-                <strong>Location</strong>
-                Sual Pangasinan, Philippines
-            </div>
-
-            <div class="contact-item">
-                <strong>GitHub</strong>
-                github.com/angelog9e
-            </div>
-
-            <div class="contact-item">
-                <strong>LinkedIn</strong>
-                linkedin.com/in/angelokarloaquino
-            </div>
+        <div class="project">
+          <h3>LapShowdown</h3>
+          <p>Add a short description — what it does and the problem it solves.</p>
+          <div class="tech">HTML, CSS, JavaScript</div>
         </div>
 
-        <div class="sidebar-section">
-            <h2>Skills</h2>
-
-            <ul class="skills">
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Kotlin</li>
-                <li>MySQL</li>
-                <li>Git & GitHub</li>
-                <li>UI/UX Design</li>
-            </ul>
+        <div class="project">
+          <h3>CueHall</h3>
+          <p>Add a short description — what it does and the problem it solves.</p>
+          <div class="tech">Kotlin, MongoDB</div>
         </div>
 
-        <div class="sidebar-section">
-            <h2>Languages</h2>
-
-            <ul class="skills">
-                <li>English</li>
-                <li>Filipino</li>
-            </ul>
+        <div class="project">
+          <h3>Sup Brew</h3>
+          <p>Add a short description — what it does and the problem it solves.</p>
+          <div class="tech">Kotlin, MySQL</div>
         </div>
-
-    </aside>
-
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-        <!-- ABOUT -->
-        <section class="section">
-
-            <h2 class="section-title">About Me</h2>
-
-            <p class="about">
-                I am a motivated and responsible student with a strong interest in technology and continuous learning.
-I have experience working on academic projects involving web development, system design, and networking.
-I am willing to learn new skills, work collaboratively with others, and take on new challenges.
-I am organized, adaptable, and committed to completing tasks efficiently and to the best of my ability.
-            </p>
-
-        </section>
-
-
-        <!-- EDUCATION -->
-        <section class="section">
-
-            <h2 class="section-title">Education</h2>
-
-            <div class="timeline-item">
-
-                <h3>Bachelor of Science in Information Technology</h3>
-
-                <div class="date">
-                    2023 – Present
-                </div>
-
-                <p>
-                    University of Pangasinan<br>
-                    Dagupan City, Philippines
-                </p>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <h3>University of Pangasinan</h3>
-
-                <div class="date">
-                    2021 – 2023
-                </div>
-
-                <p>
-                    University of Pangasinan<br>
-                    Philippines
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- EXPERIENCE -->
-        <section class="section">
-
-            <h2 class="section-title">Experience</h2>
-
-            <div class="timeline-item">
-
-                <h3>Student Developer</h3>
-
-                <div class="date">
-                    Academic Projects | 2024 – Present
-                </div>
-
-                <p>
-                    Developed web and mobile applications as part of academic
-                    projects. Worked with frontend interfaces, backend logic,
-                    databases, and system functionality.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS -->
-        <section class="section">
-
-            <h2 class="section-title">Projects</h2>
-
-            <div class="projects">
-
-                <div class="project-card">
-
-                    <h3>BlockBLitz</h3>
-
-                    <p>
-                        Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                        Python
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>LapShowdown</h3>
-
-                    <p>
-                       Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                        HTML , CSS , JavaScript
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>CueHall</h3>
-
-                    <p>
-                        Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                       Kotlin, MongoDB
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>Sup Brew</h3>
-
-                    <p>
-                        Lorem Ipsum
-                    </p>
-
-                    <div class="tech">
-                        Kotlin, MySQL
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CERTIFICATIONS -->
-        <section class="section">
-
-            <h2 class="section-title">Certifications & Achievements</h2>
-
-            <div class="timeline-item">
-
-                <h3>Certification Name</h3>
-
-                <div class="date">
-                    2025
-                </div>
-
-                <p>
-                    Issuing Organization
-                </p>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <h3>Academic Achievement</h3>
-
-                <div class="date">
-                    2024
-                </div>
-
-                <p>
-                    Description of achievement or award.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-        <section class="section">
-
-            <h2 class="section-title">Let's Connect</h2>
-
-            <div class="contact-box">
-
-                <p>
-                    I am open to internship opportunities, collaborations,
-                    and opportunities to grow as an IT professional.
-                </p>
-
-                <p>
-                    <strong>Email:</strong>
-                    <a href="mailto:your@email.com">
-                        your@email.com
-                    </a>
-                </p>
-
-                <p>
-                    <strong>GitHub:</strong>
-                    <a href="#">
-                        github.com/yourusername
-                    </a>
-                </p>
-
-                <p>
-                    <strong>LinkedIn:</strong>
-                    <a href="#">
-                        linkedin.com/in/yourusername
-                    </a>
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Certifications &amp; Achievements</h2>
+
+      <div class="entry">
+        <h3>Certification Name</h3>
+        <div class="meta">Issuing Organization &middot; 2025</div>
+      </div>
+
+      <div class="entry">
+        <h3>Academic Achievement</h3>
+        <div class="meta">2024</div>
+        <p>Description of achievement or award.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="block-title">Let's Connect</h2>
+      <div class="connect">
+        <p class="lede">I am open to internship opportunities, collaborations, and opportunities to grow as an IT professional.</p>
+        <div class="connect-links">
+          <a href="mailto:ngme.aquino.up@phinmaed.com">ngme.aquino.up@phinmaed.com</a>
+          <a href="https://github.com/angelog9e" target="_blank" rel="noopener">github.com/angelog9e</a>
+          <a href="https://linkedin.com/in/angelokarloaquino" target="_blank" rel="noopener">linkedin.com/in/angelokarloaquino</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 </div>
 
 </body>
 </html>
-```
