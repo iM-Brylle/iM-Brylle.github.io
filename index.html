@@ -1,247 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Curriculum Vitae — ITE 386</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3f2ee;
+    --surface: #ffffff;
+    --charcoal: #26262a;
+    --charcoal-soft: #46464b;
+    --text: #232326;
+    --text-muted: #6d6d72;
+    --hairline: #e2e0da;
+    --row-bg: #f8f7f4;
+    --accent: #ad7f52;
+    --accent-contrast: #ffffff;
+    --focus: #ad7f52;
+  }
 
-    <title>Online Curriculum Vitae - ITE 386</title>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171a;
+      --surface: #1f1f22;
+      --charcoal: #eceae5;
+      --charcoal-soft: #c7c5c0;
+      --text: #eceae5;
+      --text-muted: #9a999e;
+      --hairline: #35353a;
+      --row-bg: #26262a;
+      --accent: #c89a6c;
+      --accent-contrast: #17171a;
+      --focus: #c89a6c;
+    }
+  }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  :root[data-theme="dark"] {
+    --bg: #17171a;
+    --surface: #1f1f22;
+    --charcoal: #eceae5;
+    --charcoal-soft: #c7c5c0;
+    --text: #eceae5;
+    --text-muted: #9a999e;
+    --hairline: #35353a;
+    --row-bg: #26262a;
+    --accent: #c89a6c;
+    --accent-contrast: #17171a;
+    --focus: #c89a6c;
+  }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #eef4ff, #dce9ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-            color: #1f2937;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .container {
-            width: 100%;
-            max-width: 700px;
-            background: white;
-            border-radius: 18px;
-            padding: 45px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
+  body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+  a:focus-visible, a:focus { outline: 2px solid var(--focus); outline-offset: 3px; }
 
-        .header .icon {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #2563eb;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-        }
+  .container {
+    width: 100%;
+    max-width: 640px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 50px 46px;
+  }
 
-        h1 {
-            font-size: 28px;
-            color: #172554;
-            margin-bottom: 10px;
-        }
+  .header {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--hairline);
+  }
 
-        .subtitle {
-            color: #64748b;
-            font-size: 15px;
-        }
+  .mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 
-        .cv-list {
-            list-style: none;
-            display: grid;
-            gap: 14px;
-        }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
 
-        .cv-list li a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 20px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #1e3a8a;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 13.5px;
+  }
 
-        .cv-list li a:hover {
-            background: #2563eb;
-            color: white;
-            border-color: #2563eb;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
-        }
+  .cv-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
 
-        .cv-number {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+  .cv-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: var(--row-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
 
-        .number {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: #dbeafe;
-            color: #2563eb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: bold;
-        }
+  .cv-list li a:hover {
+    border-color: var(--accent);
+    background: var(--charcoal);
+    color: var(--bg);
+    transform: translateX(3px);
+  }
 
-        .cv-list li a:hover .number {
-            background: white;
-            color: #2563eb;
-        }
+  .cv-entry {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
 
-        .arrow {
-            font-size: 20px;
-            transition: transform 0.25s ease;
-        }
+  .number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    color: var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+  }
 
-        .cv-list li a:hover .arrow {
-            transform: translateX(5px);
-        }
+  .cv-list li a:hover .number {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            color: #94a3b8;
-            font-size: 13px;
-        }
+  .arrow {
+    font-size: 16px;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
+  .cv-list li a:hover .arrow {
+    transform: translateX(4px);
+    color: var(--bg);
+  }
 
-            .container {
-                padding: 30px 20px;
-            }
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+    color: var(--text-muted);
+    font-size: 12px;
+  }
 
-            h1 {
-                font-size: 23px;
-            }
-
-            .cv-list li a {
-                padding: 15px;
-            }
-        }
-    </style>
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .container { padding: 34px 24px; }
+    h1 { font-size: 21px; }
+    .cv-list li a { padding: 14px 16px; }
+  }
+</style>
 </head>
 
 <body>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="header">
-
-            <div class="icon">
-                ☁
-            </div>
-
-            <h1>Online Curriculum Vitae</h1>
-
-            <p class="subtitle">
-                ITE 386 - Cloud Programming
-            </p>
-
-        </div>
-
-
-        <ul class="cv-list">
-
-            <li>
-                <a href="AbalosCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">01</span>
-                        CV 1 - Abalos
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="AquinoCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">02</span>
-                        CV 2 - Aquino
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="DoradoCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">03</span>
-                        CV 3 - Dorado
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="FernandezCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">04</span>
-                        CV 4 - Fernandez
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="VidalCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">05</span>
-                        CV 5 - Vidal
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="ZabalaCV.html" target="_blank">
-                    <span class="cv-number">
-                        <span class="number">06</span>
-                        CV 6 - Zabala
-                    </span>
-                    <span class="arrow">→</span>
-                </a>
-            </li>
-
-        </ul>
-
-
-        <div class="footer">
-            ITE 386 • Cloud Programming
-        </div>
-
+    <div class="header">
+      <div class="mark">CV</div>
+      <h1>Online Curriculum Vitae</h1>
+      <p class="subtitle">ITE 386 — Cloud Programming</p>
     </div>
+
+    <ul class="cv-list">
+      <li>
+        <a href="AbalosCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">01</span>
+            CV 1 — Abalos
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="AquinoCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">02</span>
+            CV 2 — Aquino
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="DoradoCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">03</span>
+            CV 3 — Dorado
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="FernandezCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">04</span>
+            CV 4 — Fernandez
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="VidalCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">05</span>
+            CV 5 — Vidal
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="ZabalaCV.html" target="_blank">
+          <span class="cv-entry">
+            <span class="number">06</span>
+            CV 6 — Zabala
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="footer">ITE 386 &middot; Cloud Programming</div>
+
+  </div>
 
 </body>
 </html>
