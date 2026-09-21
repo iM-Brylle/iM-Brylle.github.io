@@ -1,617 +1,1408 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geormy Brylle C. Abalos — CV</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
 
-<style>
-  :root {
-    --bg: #f3f2ee;
-    --surface: #ffffff;
-    --charcoal: #26262a;
-    --charcoal-soft: #46464b;
-    --text: #232326;
-    --text-muted: #6d6d72;
-    --hairline: #e2e0da;
-    --rail-bg: #26262a;
-    --rail-text: #f2f1ee;
-    --rail-text-muted: #b6b5b2;
-    --rail-hairline: rgba(242,241,238,0.14);
-    --accent: #ad7f52;
-    --focus: #ad7f52;
-  }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
+  <title>Geormy Brylle C. Abalos — CV</title>
+
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       ROOT / COLORS
+    ====================================================== */
+
+    :root {
+
+      --bg: #f3f2ee;
+
+      --surface: #ffffff;
+
+      --charcoal: #26262a;
+
+      --charcoal-soft: #46464b;
+
+      --text: #232326;
+
+      --text-muted: #6d6d72;
+
+      --hairline: #e2e0da;
+
+      --rail-bg: #26262a;
+
+      --rail-text: #f2f1ee;
+
+      --rail-text-muted: #b6b5b2;
+
+      --rail-hairline: rgba(242,241,238,0.14);
+
+      --accent: #ad7f52;
+
+      --focus: #ad7f52;
+
+    }
+
+
+    /* =====================================================
+       DARK MODE
+    ====================================================== */
+
+    @media (prefers-color-scheme: dark) {
+
+      :root:not([data-theme="light"]) {
+
+        --bg: #17171a;
+
+        --surface: #1f1f22;
+
+        --charcoal: #eceae5;
+
+        --charcoal-soft: #c7c5c0;
+
+        --text: #eceae5;
+
+        --text-muted: #9a999e;
+
+        --hairline: #35353a;
+
+        --rail-bg: #101012;
+
+        --rail-text: #efeeea;
+
+        --rail-text-muted: #97969b;
+
+        --rail-hairline: rgba(239,238,234,0.12);
+
+        --accent: #c89a6c;
+
+        --focus: #c89a6c;
+
+      }
+
+    }
+
+
+    :root[data-theme="dark"] {
+
       --bg: #17171a;
+
       --surface: #1f1f22;
+
       --charcoal: #eceae5;
+
       --charcoal-soft: #c7c5c0;
+
       --text: #eceae5;
+
       --text-muted: #9a999e;
+
       --hairline: #35353a;
+
       --rail-bg: #101012;
+
       --rail-text: #efeeea;
+
       --rail-text-muted: #97969b;
+
       --rail-hairline: rgba(239,238,234,0.12);
+
       --accent: #c89a6c;
+
       --focus: #c89a6c;
+
     }
-  }
 
-  :root[data-theme="dark"] {
-    --bg: #17171a;
-    --surface: #1f1f22;
-    --charcoal: #eceae5;
-    --charcoal-soft: #c7c5c0;
-    --text: #eceae5;
-    --text-muted: #9a999e;
-    --hairline: #35353a;
-    --rail-bg: #101012;
-    --rail-text: #efeeea;
-    --rail-text-muted: #97969b;
-    --rail-hairline: rgba(239,238,234,0.12);
-    --accent: #c89a6c;
-    --focus: #c89a6c;
-  }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* =====================================================
+       GLOBAL
+    ====================================================== */
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+    * {
 
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--focus);
-    outline-offset: 3px;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .cv {
-    max-width: 1080px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    background: var(--surface);
-    min-height: 100vh;
-  }
-
-  @media (min-width: 700px) {
-    .cv {
-      margin: 48px auto;
-      min-height: 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06),
-                  0 12px 40px rgba(0,0,0,0.08);
-    }
-  }
-
-  /* ===== RAIL ===== */
-  .rail {
-    background: var(--rail-bg);
-    color: var(--rail-text);
-    padding: 52px 34px;
-  }
-
-  .rail-photo {
-    width: 108px;
-    height: 108px;
-    border-radius: 50%;
-    background: var(--rail-hairline);
-    border: 1px solid var(--rail-hairline);
-    margin-bottom: 22px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .rail-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .rail-photo .initials {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 30px;
-    font-weight: 600;
-    color: var(--rail-text-muted);
-  }
-
-  .rail-name {
-    font-size: 27px;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-
-  .rail-role {
-    font-size: 13.5px;
-    color: var(--rail-text-muted);
-    margin-bottom: 40px;
-  }
-
-  .rail-block { margin-bottom: 34px; }
-
-  .rail-block h2 {
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin-bottom: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rail-row {
-    margin-bottom: 14px;
-    font-size: 13.5px;
-  }
-
-  .rail-row .label {
-    display: block;
-    font-size: 11px;
-    color: var(--rail-text-muted);
-    margin-bottom: 2px;
-  }
-
-  .rail-row a { text-decoration: none; }
-  .rail-row a:hover { color: var(--accent); }
-
-  .skill-list, .lang-list {
-    list-style: none;
-  }
-
-  .skill-list li, .lang-list li {
-    font-size: 13.5px;
-    padding: 7px 0;
-    border-bottom: 1px solid var(--rail-hairline);
-  }
-
-  .skill-list li:last-child, .lang-list li:last-child {
-    border-bottom: none;
-  }
-
-  /* ===== MAIN ===== */
-  .main { padding: 52px 46px; }
-
-  .block { margin-bottom: 44px; }
-  .block:last-child { margin-bottom: 0; }
-
-  .block-title {
-    font-size: 19px;
-    color: var(--charcoal);
-    margin-bottom: 22px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .about {
-    color: var(--text-muted);
-    max-width: 66ch;
-  }
-
-  .entry {
-    position: relative;
-    padding-left: 26px;
-    margin-bottom: 26px;
-    border-left: 1px solid var(--hairline);
-  }
-
-  .entry:last-child { margin-bottom: 0; }
-
-  .entry::before {
-    content: "";
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--charcoal);
-    left: -4px;
-    top: 6px;
-  }
-
-  .entry.current::before { background: var(--accent); }
-
-  .entry h3 {
-    font-size: 15.5px;
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .entry .meta {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin: 3px 0 6px;
-  }
-
-  .entry p {
-    font-size: 13.5px;
-    color: var(--text-muted);
-  }
-
-  .project-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  @media (max-width: 560px) {
-    .project-list { grid-template-columns: 1fr; }
-  }
-
-  .project {
-    border: 1px solid var(--hairline);
-    border-radius: 3px;
-    padding: 20px;
-    transition: border-color 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-  }
-
-  .project:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  }
-
-  .project:hover h3 { color: var(--accent); }
-
-  .project h3 {
-    font-size: 15px;
-    color: var(--text);
-    margin-bottom: 6px;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-
-  .project p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-
-  .project .tech {
-    font-size: 11px;
-    color: var(--accent);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-
-  .connect {
-    border: 1px solid var(--hairline);
-    border-radius: 3px;
-    padding: 26px 28px;
-  }
-
-  .connect p.lede {
-    color: var(--text-muted);
-    max-width: 56ch;
-    margin-bottom: 18px;
-    font-size: 14px;
-  }
-
-  .connect-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 28px;
-  }
-
-  .connect-links a {
-    font-size: 13.5px;
-    text-decoration: none;
-    border-bottom: 1px solid var(--charcoal);
-    padding-bottom: 1px;
-  }
-
-  .connect-links a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  @media (max-width: 700px) {
-    .cv { grid-template-columns: 1fr; }
-    .rail { padding: 40px 28px; }
-    .main { padding: 40px 26px; }
-  }
-
-  @media print {
-    body { background: white; }
-
-    .cv {
       margin: 0;
-      box-shadow: none;
-      grid-template-columns: 260px 1fr;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
     }
+
+
+    body {
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+      font-size: 15px;
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+
+    a {
+
+      color: inherit;
+
+    }
+
+
+    a:focus-visible,
+    button:focus-visible {
+
+      outline: 2px solid var(--focus);
+
+      outline-offset: 3px;
+
+    }
+
+
+    h1,
+    h2,
+    h3 {
+
+      font-family:
+        'Space Grotesk',
+        'Inter',
+        sans-serif;
+
+      font-weight: 600;
+
+      letter-spacing: -0.01em;
+
+    }
+
+
+    /* =====================================================
+       CV CONTAINER
+    ====================================================== */
+
+    .cv {
+
+      max-width: 1080px;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns: 300px 1fr;
+
+      background: var(--surface);
+
+      min-height: 100vh;
+
+    }
+
+
+    @media (min-width: 700px) {
+
+      .cv {
+
+        margin: 48px auto;
+
+        min-height: 0;
+
+        box-shadow:
+          0 1px 3px rgba(0,0,0,0.06),
+          0 12px 40px rgba(0,0,0,0.08);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       LEFT SIDEBAR
+    ====================================================== */
+
+    .rail {
+
+      background: var(--rail-bg);
+
+      color: var(--rail-text);
+
+      padding: 52px 34px;
+
+    }
+
+
+    /* =====================================================
+       PROFILE PHOTO
+    ====================================================== */
+
+    .rail-photo {
+
+      width: 208px;
+
+      height: 208px;
+
+      border-radius: 50%;
+
+      background: var(--rail-hairline);
+
+      border: 1px solid var(--rail-hairline);
+
+      margin-bottom: 22px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .rail-photo img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+    }
+
+
+    .rail-photo .initials {
+
+      font-family:
+        'Space Grotesk',
+        sans-serif;
+
+      font-size: 30px;
+
+      font-weight: 600;
+
+      color: var(--rail-text-muted);
+
+    }
+
+
+    /* =====================================================
+       NAME / ROLE
+    ====================================================== */
+
+    .rail-name {
+
+      font-size: 27px;
+
+      line-height: 1.2;
+
+      margin-bottom: 6px;
+
+    }
+
+
+    .rail-role {
+
+      font-size: 13.5px;
+
+      color: var(--rail-text-muted);
+
+      margin-bottom: 40px;
+
+    }
+
+
+    /* =====================================================
+       SIDEBAR BLOCKS
+    ====================================================== */
+
+    .rail-block {
+
+      margin-bottom: 34px;
+
+    }
+
+
+    .rail-block h2 {
+
+      font-size: 11px;
+
+      letter-spacing: 0.06em;
+
+      color: var(--accent);
+
+      margin-bottom: 16px;
+
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ====================================================== */
+
+    .rail-row {
+
+      margin-bottom: 14px;
+
+      font-size: 13.5px;
+
+    }
+
+
+    .rail-row .label {
+
+      display: block;
+
+      font-size: 11px;
+
+      color: var(--rail-text-muted);
+
+      margin-bottom: 2px;
+
+    }
+
+
+    .rail-row a {
+
+      text-decoration: none;
+
+    }
+
+
+    .rail-row a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    /* =====================================================
+       SKILLS
+    ====================================================== */
+
+    .skill-list {
+
+      list-style: none;
+
+    }
+
+
+    .skill-list li {
+
+      font-size: 13.5px;
+
+      padding: 7px 0;
+
+      border-bottom:
+        1px solid var(--rail-hairline);
+
+    }
+
+
+    .skill-list li:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+    /* =====================================================
+       MAIN CONTENT
+    ====================================================== */
+
+    .main {
+
+      padding: 52px 46px;
+
+    }
+
+
+    .block {
+
+      margin-bottom: 44px;
+
+    }
+
+
+    .block:last-child {
+
+      margin-bottom: 0;
+
+    }
+
+
+    .block-title {
+
+      font-size: 19px;
+
+      color: var(--charcoal);
+
+      margin-bottom: 22px;
+
+      padding-bottom: 10px;
+
+      border-bottom:
+        1px solid var(--hairline);
+
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ====================================================== */
+
+    .about {
+
+      color: var(--text-muted);
+
+      max-width: 62ch;
+
+    }
+
+
+    /* =====================================================
+       EDUCATION / EXPERIENCE
+    ====================================================== */
+
+    .entry {
+
+      position: relative;
+
+      padding-left: 26px;
+
+      margin-bottom: 26px;
+
+      border-left:
+        1px solid var(--hairline);
+
+    }
+
+
+    .entry:last-child {
+
+      margin-bottom: 0;
+
+    }
+
+
+    .entry::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--charcoal);
+
+      left: -4px;
+
+      top: 6px;
+
+    }
+
+
+    .entry.current::before {
+
+      background: var(--accent);
+
+    }
+
+
+    .entry h3 {
+
+      font-size: 15.5px;
+
+      color: var(--text);
+
+      font-weight: 600;
+
+    }
+
+
+    .entry .meta {
+
+      font-size: 12.5px;
+
+      color: var(--text-muted);
+
+      margin: 3px 0 6px;
+
+    }
+
+
+    .entry p {
+
+      font-size: 13.5px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    /* =====================================================
+       PROJECTS
+    ====================================================== */
+
+    .projects {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+
+    }
+
+
+    @media (max-width: 560px) {
+
+      .projects {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    .project {
+
+      border:
+        1px solid var(--hairline);
+
+      border-radius: 3px;
+
+      padding: 20px;
+
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    }
+
 
     .project:hover {
-      transform: none;
-      box-shadow: none;
+
+      border-color: var(--accent);
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.08);
+
     }
-  }
-</style>
+
+
+    .project:hover h3 {
+
+      color: var(--accent);
+
+    }
+
+
+    .project h3 {
+
+      font-size: 15px;
+
+      color: var(--text);
+
+      margin-bottom: 6px;
+
+      font-weight: 600;
+
+      transition:
+        color 0.2s ease;
+
+    }
+
+
+    .project p {
+
+      font-size: 13px;
+
+      color: var(--text-muted);
+
+      font-style: italic;
+
+      margin-bottom: 14px;
+
+    }
+
+
+    .project .tech {
+
+      font-size: 11px;
+
+      color: var(--accent);
+
+      font-weight: 600;
+
+      letter-spacing: 0.02em;
+
+    }
+
+
+    /* =====================================================
+       CONNECT
+    ====================================================== */
+
+    .connect {
+
+      border:
+        1px solid var(--hairline);
+
+      border-radius: 3px;
+
+      padding: 26px 28px;
+
+    }
+
+
+    .connect p.lede {
+
+      color: var(--text-muted);
+
+      max-width: 56ch;
+
+      margin-bottom: 18px;
+
+      font-size: 14px;
+
+    }
+
+
+    .connect-links {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px 28px;
+
+    }
+
+
+    .connect-links a {
+
+      font-size: 13.5px;
+
+      text-decoration: none;
+
+      border-bottom:
+        1px solid var(--charcoal);
+
+      padding-bottom: 1px;
+
+    }
+
+
+    .connect-links a:hover {
+
+      color: var(--accent);
+
+      border-color: var(--accent);
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 700px) {
+
+      .cv {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .rail {
+
+        padding: 40px 28px;
+
+      }
+
+
+      .main {
+
+        padding: 40px 26px;
+
+      }
+
+
+      .rail-photo {
+
+        width: 180px;
+
+        height: 180px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       PRINT
+    ====================================================== */
+
+    @media print {
+
+      body {
+
+        background: white;
+
+      }
+
+
+      .cv {
+
+        margin: 0;
+
+        box-shadow: none;
+
+        grid-template-columns: 260px 1fr;
+
+      }
+
+
+      .project:hover {
+
+        transform: none;
+
+        box-shadow: none;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
+
 <div class="cv">
 
-  <!-- ===== LEFT SIDEBAR ===== -->
+
+  <!-- =====================================================
+       LEFT SIDEBAR
+  ====================================================== -->
+
   <aside class="rail">
 
+
+    <!-- PROFILE PHOTO -->
+
     <div class="rail-photo">
-      <img src="profile.jpg"
-           alt="Geormy Brylle C. Abalos"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <span class="initials" style="display:none;">GB</span>
+
+      <img
+        src="photos/AbalosCV.jpg"
+        alt="Geormy Brylle C. Abalos"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      >
+
+      <span
+        class="initials"
+        style="display:none;"
+      >
+        GB
+      </span>
+
     </div>
 
-    <div class="rail-name">Geormy Brylle C. Abalos</div>
-    <div class="rail-role">Business Informatics Student</div>
+
+    <!-- NAME -->
+
+    <div class="rail-name">
+      Geormy Brylle C. Abalos
+    </div>
+
+
+    <div class="rail-role">
+      Business Informatics Student
+    </div>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
 
     <div class="rail-block">
+
       <h2>Contact</h2>
 
-      <div class="rail-row">
-        <span class="label">Email</span>
-        <a href="mailto:gecr.abalos.up@phinmaed.com">gecr.abalos.up@phinmaed.com</a>
-      </div>
 
       <div class="rail-row">
-        <span class="label">Phone</span>
+
+        <span class="label">
+          Email
+        </span>
+
+        <a href="mailto:gecr.abalos.up@phinmaed.com">
+          gecr.abalos.up@phinmaed.com
+        </a>
+
+      </div>
+
+
+      <div class="rail-row">
+
+        <span class="label">
+          Phone
+        </span>
+
         +63 945 188 4373
+
       </div>
 
+
       <div class="rail-row">
-        <span class="label">Location</span>
+
+        <span class="label">
+          Location
+        </span>
+
         Aguilar, Pangasinan, Philippines
+
       </div>
 
+
       <div class="rail-row">
-        <span class="label">GitHub</span>
-        <a href="https://github.com/iM-Brylle" target="_blank" rel="noopener">
+
+        <span class="label">
+          GitHub
+        </span>
+
+        <a
+          href="https://github.com/iM-Brylle"
+          target="_blank"
+          rel="noopener"
+        >
           github.com/iM-Brylle
         </a>
+
       </div>
+
 
       <div class="rail-row">
-        <span class="label">LinkedIn</span>
-        <a href="https://linkedin.com/in/geormybrylleabalos" target="_blank" rel="noopener">
+
+        <span class="label">
+          LinkedIn
+        </span>
+
+        <a
+          href="https://linkedin.com/in/geormybrylleabalos"
+          target="_blank"
+          rel="noopener"
+        >
           linkedin.com/in/geormybrylleabalos
         </a>
+
       </div>
+
     </div>
 
-    <!-- TECHNICAL SKILLS -->
+
+    <!-- =====================================================
+         TECHNICAL SKILLS
+    ====================================================== -->
+
     <div class="rail-block">
-      <h2>Technical Skills</h2>
+
+      <h2>
+        Technical Skills
+      </h2>
+
 
       <ul class="skill-list">
-        <li>HTML &amp; CSS</li>
-        <li>JavaScript</li>
-        <li>PHP</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>Kotlin</li>
-        <li>MySQL</li>
-        <li>MongoDB</li>
-        <li>Node.js</li>
-        <li>Git &amp; GitHub</li>
-        <li>Data Analysis</li>
+
+        <li>Web Development</li>
+
+        <li>App Development</li>
+
         <li>Database Management</li>
+
+        <li>Data Analysis</li>
+
         <li>UI/UX Design</li>
-        <li>Computer Networking</li>
+
+        <li>Information Systems</li>
+
       </ul>
+
     </div>
 
-    <!-- LANGUAGES -->
+
+    <!-- =====================================================
+         CORE WORK SKILLS
+    ====================================================== -->
+
     <div class="rail-block">
-      <h2>Languages</h2>
 
-      <ul class="lang-list">
-        <li>English</li>
-        <li>Filipino</li>
-        <li>Pangasinan</li>
+      <h2>
+        Core Work Skills
+      </h2>
+
+
+      <ul class="skill-list">
+
+        <li>Problem Solving</li>
+
+        <li>Critical Thinking</li>
+
+        <li>Attention to Detail</li>
+
+        <li>Team Collaboration</li>
+
+        <li>Communication</li>
+
+        <li>Time Management</li>
+
+        <li>Adaptability</li>
+
+        <li>Continuous Learning</li>
+
       </ul>
+
     </div>
+
+
+    <!-- =====================================================
+         PROGRAMMING & TOOLS
+    ====================================================== -->
+
+    <div class="rail-block">
+
+      <h2>
+        Programming &amp; Tools
+      </h2>
+
+
+      <ul class="skill-list">
+
+        <li>HTML &amp; CSS</li>
+
+        <li>JavaScript</li>
+
+        <li>PHP</li>
+
+        <li>Python</li>
+
+        <li>Java</li>
+
+        <li>Kotlin</li>
+
+        <li>MySQL</li>
+
+        <li>MongoDB</li>
+
+        <li>Node.js</li>
+
+        <li>Git &amp; GitHub</li>
+
+      </ul>
+
+    </div>
+
 
   </aside>
 
 
-  <!-- ===== MAIN CONTENT ===== -->
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
   <main class="main">
 
-    <!-- ABOUT -->
+
+    <!-- =====================================================
+         ABOUT ME
+    ====================================================== -->
+
     <section class="block">
-      <h2 class="block-title">About Me</h2>
+
+      <h2 class="block-title">
+        About Me
+      </h2>
+
 
       <p class="about">
+
         I am a motivated and detail-oriented Business Informatics student
         with a strong interest in information technology, data analytics,
         web development, and information systems. I have gained hands-on
         experience through academic projects involving system design,
-        database management, networking, data analysis, and web-based
-        application development. I am eager to apply my technical and
-        analytical skills in a professional environment, contribute to
-        meaningful projects, and gain practical industry experience.
-        I am adaptable, organized, and committed to continuous learning
-        and professional growth.
+        database management, data analysis, and web and mobile application
+        development. I am eager to apply my technical and analytical skills
+        in a professional environment, contribute to meaningful projects,
+        and gain practical industry experience. I am adaptable, organized,
+        and committed to continuous learning and professional growth.
+
       </p>
+
     </section>
 
 
-    <!-- EDUCATION -->
+    <!-- =====================================================
+         EDUCATION
+    ====================================================== -->
+
     <section class="block">
-      <h2 class="block-title">Education</h2>
+
+      <h2 class="block-title">
+        Education
+      </h2>
+
 
       <div class="entry current">
-        <h3>Bachelor of Science in Information Technology</h3>
+
+        <h3>
+          Bachelor of Science in Information Technology
+        </h3>
+
+
         <div class="meta">
-          University of Pangasinan, Dagupan City · 2023 – Present
+
+          PHINMA University of Pangasinan, Dagupan City
+          &middot; 2023 – Present
+
         </div>
+
+
         <p>
+
           Business Informatics track with academic focus on information
           systems, technology, data, and business-oriented solutions.
+
         </p>
+
       </div>
 
+
       <div class="entry">
-        <h3>Senior High School</h3>
+
+        <h3>
+          Senior High School
+        </h3>
+
+
         <div class="meta">
-          University of Pangasinan · 2020 – 2022
+
+          PHINMA University of Pangasinan
+          &middot; 2020 – 2022
+
         </div>
+
       </div>
+
     </section>
 
 
-    <!-- EXPERIENCE -->
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
     <section class="block">
-      <h2 class="block-title">Experience</h2>
+
+      <h2 class="block-title">
+        Experience
+      </h2>
+
 
       <div class="entry current">
-        <h3>Student Developer</h3>
-        <div class="meta">Academic Projects · 2024 – Present</div>
+
+        <h3>
+          Student Developer
+        </h3>
+
+
+        <div class="meta">
+
+          Academic Projects &middot; 2024 – Present
+
+        </div>
+
 
         <p>
+
           Developed web and mobile applications as part of academic
           projects, working with frontend interfaces, backend logic,
           databases, and system functionality. Applied problem-solving,
           data handling, and user-focused design principles to develop
           practical technology solutions.
+
         </p>
+
       </div>
+
     </section>
 
 
-    <!-- PROJECTS -->
+    <!-- =====================================================
+         SELECTED PROJECTS
+    ====================================================== -->
+
     <section class="block">
-      <h2 class="block-title">Selected Projects</h2>
 
-      <div class="project-list">
+      <h2 class="block-title">
+        Selected Projects
+      </h2>
 
-        <div class="project">
-          <h3>BLIMS</h3>
-          <p>
-            Web-based learner information management system designed
-            to organize learner records and improve access to academic
-            information.
-          </p>
-          <div class="tech">HTML, CSS, JavaScript, PHP, MySQL</div>
-        </div>
+
+      <div class="projects">
+
+
+        <!-- BLIMS -->
 
         <div class="project">
-          <h3>BlockBLitz</h3>
+
+          <h3>
+            BLIMS
+          </h3>
+
+
           <p>
-            Academic software project developed in Python, applying
-            programming and problem-solving concepts to build a
-            functional technology solution.
+
+            Web-based school information management system designed to
+            manage student records, academic information, schedules,
+            attendance, and other school-related processes through
+            role-based access.
+
           </p>
-          <div class="tech">Python</div>
+
+
+          <div class="tech">
+
+            HTML, CSS, JavaScript, PHP, MySQL
+
+          </div>
+
         </div>
 
-        <div class="project">
-          <h3>LapShowdown</h3>
-          <p>
-            Web-based academic project featuring an interactive
-            interface and client-side functionality focused on
-            user interaction and presentation.
-          </p>
-          <div class="tech">HTML, CSS, JavaScript</div>
-        </div>
+
+        <!-- BLOCKBLITZ -->
 
         <div class="project">
-          <h3>CueHall</h3>
+
+          <h3>
+            BlockBLitz
+          </h3>
+
+
           <p>
-            Mobile application project developed with a focus on
-            application functionality, data management, and
-            user-centered interaction.
+
+            Tetris-inspired puzzle game developed in Python, featuring
+            block placement and gameplay mechanics focused on applying
+            programming and problem-solving concepts.
+
           </p>
-          <div class="tech">Kotlin, MongoDB</div>
+
+
+          <div class="tech">
+
+            Python
+
+          </div>
+
         </div>
 
+
+        <!-- LAPSHOWDOWN -->
+
         <div class="project">
-          <h3>Sup Brew</h3>
+
+          <h3>
+            LapShowdown
+          </h3>
+
+
           <p>
-            Mobile application project integrating database-driven
-            functionality to support business-related processes
-            and information management.
+
+            Interactive laptop showroom website designed to showcase
+            different laptop models, specifications, and product
+            information through a user-friendly web interface.
+
           </p>
-          <div class="tech">Kotlin, MySQL</div>
+
+
+          <div class="tech">
+
+            HTML, CSS, JavaScript
+
+          </div>
+
         </div>
+
+
+        <!-- CUEHALL -->
+
+        <div class="project">
+
+          <h3>
+            CueHall
+          </h3>
+
+
+          <p>
+
+            Reservation-based application designed for booking pool
+            tables and private rooms, providing users with a convenient
+            way to view and manage reservations.
+
+          </p>
+
+
+          <div class="tech">
+
+            Kotlin, MongoDB
+
+          </div>
+
+        </div>
+
+
+        <!-- SUP BREW -->
+
+        <div class="project">
+
+          <h3>
+            Sup Brew
+          </h3>
+
+
+          <p>
+
+            Coffee shop ordering application designed to allow customers
+            to browse products and place orders while supporting
+            organized management of coffee shop transactions.
+
+          </p>
+
+
+          <div class="tech">
+
+            Kotlin, MySQL
+
+          </div>
+
+        </div>
+
 
       </div>
+
     </section>
 
 
-    <!-- CERTIFICATIONS -->
+    <!-- =====================================================
+         LET'S CONNECT
+    ====================================================== -->
+
     <section class="block">
-      <h2 class="block-title">Certifications &amp; Achievements</h2>
 
-      <div class="entry">
-        <h3>Certification</h3>
-        <div class="meta">Add issuing organization · Year</div>
-        <p>
-          Replace this section with your actual certifications,
-          seminars, training, awards, or academic achievements.
-        </p>
-      </div>
+      <h2 class="block-title">
+        Let's Connect
+      </h2>
 
-      <div class="entry">
-        <h3>Academic Achievement</h3>
-        <div class="meta">Add year</div>
-        <p>
-          Add a relevant academic award, recognition, competition,
-          or achievement.
-        </p>
-      </div>
-    </section>
-
-
-    <!-- CONNECT -->
-    <section class="block">
-      <h2 class="block-title">Let's Connect</h2>
 
       <div class="connect">
+
+
         <p class="lede">
+
           I am open to internship and OJT opportunities where I can
           apply my technical and analytical skills, contribute to a
           professional team, and continue growing as an IT professional.
+
         </p>
 
+
         <div class="connect-links">
+
+
           <a href="mailto:gecr.abalos.up@phinmaed.com">
+
             gecr.abalos.up@phinmaed.com
+
           </a>
 
-          <a href="https://github.com/iM-Brylle" target="_blank" rel="noopener">
+
+          <a
+            href="https://github.com/iM-Brylle"
+            target="_blank"
+            rel="noopener"
+          >
+
             github.com/iM-Brylle
+
           </a>
 
-          <a href="https://linkedin.com/in/geormybrylleabalos" target="_blank" rel="noopener">
+
+          <a
+            href="https://linkedin.com/in/geormybrylleabalos"
+            target="_blank"
+            rel="noopener"
+          >
+
             linkedin.com/in/geormybrylleabalos
+
           </a>
+
+
         </div>
+
       </div>
+
     </section>
+
 
   </main>
 
+
 </div>
 
+
 </body>
+
 </html>
