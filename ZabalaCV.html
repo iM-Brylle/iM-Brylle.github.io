@@ -1,538 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Joshua A. Zabala — BS Information Technology student at the University of Pangasinan. Web and mobile developer open to internships.">
+  <meta name="theme-color" content="#123b5d">
+  <title>Joshua A. Zabala | Online CV</title>
+  <script>document.documentElement.classList.add('js');</script>
 
-    <title>Joshua A. Zabala | Online CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    /* ========== DESIGN TOKENS ========== */
+    :root {
+      --navy: #123b5d;
+      --navy-deep: #0c2a44;
+      --sky: #8cc4ea;
+      --amber: #f2b134;
+      --paper: #ffffff;
+      --page: #eef2f5;
+      --ink: #1d2b36;
+      --muted: #5b6b78;
+      --line: #d9e1e7;
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-        }
+      --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --font-body: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
 
-        .cv-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #fff;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        }
+      --radius: 10px;
+    }
 
-        /* SIDEBAR */
-        .sidebar {
-            background: #123b5d;
-            color: white;
-            padding: 40px 30px;
-        }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #16212b;
+        --page: #0e161d;
+        --ink: #e4ebf0;
+        --muted: #9fb0bd;
+        --line: #2a3a47;
+        --navy-text: #8cc4ea;
+      }
+    }
 
-        .profile {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+    /* ========== BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .profile img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            margin-bottom: 15px;
-        }
+    body {
+      font-family: var(--font-body);
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .profile h1 {
-            font-size: 25px;
-            margin-bottom: 5px;
-        }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
 
-        .profile p {
-            font-size: 14px;
-            opacity: 0.85;
-        }
+    .skip-link {
+      position: absolute; left: -999px; top: 0;
+      background: var(--amber); color: #1d2b36;
+      padding: 8px 14px; font-weight: 700; z-index: 10;
+    }
+    .skip-link:focus { left: 12px; top: 12px; }
 
-        .sidebar-section {
-            margin-bottom: 30px;
-        }
+    /* ========== LAYOUT ========== */
+    .cv {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: var(--paper);
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px -20px rgba(18, 59, 93, 0.35);
+    }
 
-        .sidebar-section h2 {
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+      background: var(--navy);
+      background-image: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: #fff;
+      padding: 44px 32px;
+    }
 
-        .contact-item {
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
+    .profile { margin-bottom: 36px; }
 
-        .contact-item strong {
-            display: block;
-            font-size: 12px;
-            opacity: 0.7;
-            text-transform: uppercase;
-        }
+    .avatar {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      border: 4px solid var(--amber);
+      overflow: hidden;
+      margin-bottom: 22px;
+      background: var(--navy-deep);
+      display: grid; place-items: center;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .avatar .initials {
+      font-family: var(--font-display);
+      font-size: 44px; font-weight: 800; color: var(--sky);
+      display: none;
+    }
+    .avatar.no-photo img { display: none; }
+    .avatar.no-photo .initials { display: block; }
 
-        .skills {
-            list-style: none;
-        }
+    /* The one bold moment: the name */
+    .profile h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 42px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .profile h1 { overflow: hidden; padding-bottom: 4px; }
+    .profile h1 span { display: block; }
 
-        .skills li {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
+    .role { font-size: 15px; color: var(--sky); }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 14px;
+      font-size: 13px;
+      background: rgba(255,255,255,0.08);
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .status::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: #5fd38d;
+    }
 
-        /* MAIN CONTENT */
-        .main-content {
-            padding: 45px;
-        }
+    .side-block { margin-bottom: 30px; }
+    .side-block h2 {
+      font-family: var(--font-display);
+      font-size: 17px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 14px;
+    }
 
-        .section {
-            margin-bottom: 40px;
-        }
+    .contact-list { list-style: none; }
+    .contact-list li { margin-bottom: 12px; font-size: 14px; }
+    .contact-list .label { display: block; font-size: 12px; opacity: 0.65; }
+    .contact-list a {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      word-break: break-word;
+    }
+    .contact-list a:hover { border-bottom-color: var(--amber); }
 
-        .section-title {
-            font-size: 22px;
-            color: #123b5d;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #123b5d;
-        }
+    .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags li {
+      font-size: 13px;
+      padding: 4px 11px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+    }
 
-        .about {
-            font-size: 15px;
-            color: #555;
-        }
+    .plain-list { list-style: none; font-size: 14px; }
+    .plain-list li { margin-bottom: 6px; }
+    .plain-list small { opacity: 0.65; }
 
-        /* TIMELINE */
-        .timeline-item {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 25px;
-            border-left: 2px solid #123b5d;
-        }
+    /* ========== MAIN ========== */
+    .main { padding: 48px 52px; }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #123b5d;
-            border-radius: 50%;
-            left: -6px;
-            top: 5px;
-        }
+    .section { margin-bottom: 44px; }
+    .section:last-child { margin-bottom: 0; }
 
-        .timeline-item h3 {
-            font-size: 17px;
-            color: #222;
-        }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 700;
+      color: var(--navy-text, var(--navy));
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-title::after {
+      content: ""; flex: 1; height: 2px; background: var(--line);
+    }
 
-        .timeline-item .date {
-            font-size: 13px;
-            color: #777;
-            margin-bottom: 5px;
-        }
+    .about { font-size: 16px; color: var(--muted); max-width: 64ch; }
 
-        .timeline-item p {
-            font-size: 14px;
-            color: #555;
-        }
+    /* Timeline (education & certifications are real sequences) */
+    .timeline { list-style: none; }
+    .timeline li {
+      position: relative;
+      padding: 0 0 24px 26px;
+      border-left: 2px solid var(--line);
+    }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: "";
+      position: absolute; left: -7px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--paper);
+      border: 3px solid var(--navy-text, var(--navy));
+    }
+    .timeline h3 { font-size: 17px; line-height: 1.35; }
+    .timeline .meta { font-size: 13px; color: var(--muted); margin: 2px 0 6px; }
+    .timeline p { font-size: 14px; color: var(--muted); }
 
-        /* PROJECTS */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .project {
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--navy-text, var(--navy));
+      border-radius: var(--radius);
+      padding: 20px 20px 18px;
+      display: flex; flex-direction: column;
+    }
+    .project h3 {
+      font-family: var(--font-display);
+      font-size: 19px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .project p { font-size: 14px; color: var(--muted); margin-bottom: 14px; flex: 1; }
+    .stack { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack li {
+      font-size: 12px; font-weight: 700;
+      color: var(--navy-text, var(--navy));
+      background: color-mix(in srgb, var(--sky) 22%, transparent);
+      padding: 2px 9px; border-radius: 5px;
+    }
+    .project a {
+      margin-top: 12px; font-size: 13px; font-weight: 700;
+      color: var(--navy-text, var(--navy));
+    }
 
-        .project-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    /* Placeholders you still need to fill in — easy to spot, hidden in print */
+    .todo {
+      outline: 2px dashed var(--amber);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
 
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
+    /* Contact call-to-action */
+    .cta {
+      background: color-mix(in srgb, var(--sky) 14%, var(--paper));
+      border-radius: var(--radius);
+      padding: 26px 28px;
+    }
+    .cta p { margin-bottom: 18px; max-width: 60ch; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      font: inherit; font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      padding: 10px 18px; border-radius: 8px;
+      border: 2px solid var(--navy-text, var(--navy));
+      color: var(--navy-text, var(--navy));
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn.primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .btn:hover { filter: brightness(1.1); }
 
-        .project-card h3 {
-            color: #123b5d;
-            margin-bottom: 8px;
-        }
+    /* ========== ANIMATION ========== */
+    /* Everything is visible by default; animations only run when JS is on
+       and the visitor hasn't asked for reduced motion. */
+    @media (prefers-reduced-motion: no-preference) {
 
-        .project-card p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
+      /* 1. Page-load intro: sidebar pieces arrive in sequence */
+      .js .avatar      { animation: pop-in 0.7s cubic-bezier(.2,.9,.3,1.3) both; }
+      .js .profile h1 span { animation: rise 0.7s cubic-bezier(.2,.8,.2,1) both; }
+      .js .profile h1 span:nth-child(1) { animation-delay: 0.15s; }
+      .js .profile h1 span:nth-child(2) { animation-delay: 0.28s; }
+      .js .role        { animation: fade 0.6s ease 0.45s both; }
+      .js .status      { animation: fade 0.6s ease 0.6s both; }
+      .js .side-block  { animation: fade-up 0.6s ease both; }
+      .js .side-block:nth-of-type(1) { animation-delay: 0.7s; }
+      .js .side-block:nth-of-type(2) { animation-delay: 0.8s; }
+      .js .side-block:nth-of-type(3) { animation-delay: 0.9s; }
 
-        .tech {
-            font-size: 12px;
-            color: #123b5d;
-            font-weight: bold;
-        }
+      /* Skill tags drop in one after another */
+      .js .tags li { animation: fade-up 0.4s ease both; animation-delay: calc(0.85s + var(--i) * 0.05s); }
 
-        /* CONTACT */
-        .contact-box {
-            background: #f4f6f8;
-            padding: 25px;
-            border-radius: 8px;
-        }
+      /* The "open to internships" dot breathes */
+      .status::before { animation: pulse 2.2s ease-out infinite; }
 
-        .contact-box p {
-            margin-bottom: 8px;
-        }
+      /* 2. Scroll reveal: main sections slide up as they enter view */
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.8,.2,1);
+      }
+      .js .reveal.visible { opacity: 1; transform: none; }
 
-        .contact-box a {
-            color: #123b5d;
-            text-decoration: none;
-        }
+      /* Section title underline draws itself */
+      .js .reveal .section-title::after {
+        transform: scaleX(0); transform-origin: left;
+        transition: transform 0.9s cubic-bezier(.2,.8,.2,1) 0.2s;
+      }
+      .js .reveal.visible .section-title::after { transform: scaleX(1); }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-            .cv-container {
-                grid-template-columns: 1fr;
-                margin: 0;
-            }
+      /* Items inside a section follow a beat behind the section */
+      .js .reveal .timeline li,
+      .js .reveal .project {
+        opacity: 0; transform: translateY(16px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        transition-delay: calc(0.15s + var(--i, 0) * 0.1s);
+      }
+      .js .reveal.visible .timeline li,
+      .js .reveal.visible .project { opacity: 1; transform: none; }
 
-            .sidebar {
-                text-align: center;
-            }
+      /* Timeline dots fill in once visible */
+      .js .reveal.visible .timeline li::before {
+        animation: dot-fill 0.4s ease both;
+        animation-delay: calc(0.4s + var(--i, 0) * 0.1s);
+      }
 
-            .main-content {
-                padding: 30px 20px;
-            }
+      /* 3. Interaction: responds to the visitor */
+      .project { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+      .project:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px -14px rgba(18,59,93,0.45);
+        border-top-color: var(--amber);
+      }
+      .js .reveal.visible .project:hover { transform: translateY(-4px); }
+      .tags li { transition: background 0.2s ease, border-color 0.2s ease; }
+      .tags li:hover { background: rgba(242,177,52,0.18); border-color: var(--amber); }
+      .btn { transition: transform 0.15s ease, filter 0.2s ease; }
+      .btn:hover { transform: translateY(-2px); }
+      .btn:active { transform: translateY(0); }
+      .avatar { transition: transform 0.4s ease; }
+      .avatar:hover { transform: rotate(-4deg) scale(1.04); }
+    }
 
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
+    @keyframes rise    { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: none; } }
+    @keyframes fade    { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes pop-in  { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(95,211,141,0.7); }
+      70%  { box-shadow: 0 0 0 8px rgba(95,211,141,0); }
+      100% { box-shadow: 0 0 0 0 rgba(95,211,141,0); }
+    }
+    @keyframes dot-fill { to { background: var(--navy-text, var(--navy)); } }
 
-        @media print {
-            body {
-                background: white;
-            }
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 860px) {
+      .cv { grid-template-columns: 1fr; margin: 0; border-radius: 0; }
+      .sidebar { padding: 36px 24px; }
+      .main { padding: 36px 24px; }
+      .projects { grid-template-columns: 1fr; }
+    }
 
-            .cv-container {
-                margin: 0;
-                box-shadow: none;
-            }
-        }
-    </style>
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* ========== PRINT (Ctrl+P → Save as PDF) ========== */
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; color: #1d2b36; }
+      .cv { margin: 0; box-shadow: none; border-radius: 0; max-width: none; }
+      .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print, .skip-link { display: none !important; }
+      .todo { outline: none; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal, .js .reveal .timeline li, .js .reveal .project,
+      .js .tags li, .js .side-block { opacity: 1 !important; transform: none !important; }
+      .js .reveal .section-title::after { transform: none !important; }
+      .timeline li::before { background: var(--navy) !important; }
+      .project, .timeline li { break-inside: avoid; }
+      .main { padding: 36px 40px; }
+      .section { margin-bottom: 28px; }
+    }
+  </style>
 </head>
 
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<div class="cv-container">
+<div class="cv">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
 
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Photo">
+    <div class="profile">
+      <div class="avatar" id="avatar">
+        <!-- Put profile.jpg in the same folder as this file. If it's missing, initials show instead. -->
+        <img src="pic4cv.jpg" alt="Photo of Joshua A. Zabala"
+             onerror="document.getElementById('avatar').classList.add('no-photo')">
+        <span class="initials" aria-hidden="true">JZ</span>
+      </div>
 
-            <h1>Joshua A. Zabala</h1>
-            <p>BS Information Technology Student</p>
+      <h1><span>Joshua A.</span><span>Zabala</span></h1>
+      <p class="role">BS Information Technology Student</p>
+      <p class="status">Open to internships</p>
+    </div>
+
+    <section class="side-block" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:joav.zabala.up@phinmaed.com">joav.zabala.up@phinmaed.com</a>
+        </li>
+        <li>
+          <span class="label">Phone</span>
+          <a href="tel:+639761500183">+63 976 150 0183</a>
+        </li>
+        <li>
+          <span class="label">Location</span>
+          Dagupan City, Pangasinan, Philippines
+        </li>
+        <li>
+          <span class="label">GitHub</span>
+          <a href="https://github.com/jtheicon" target="_blank" rel="noopener">github.com/jtheicon</a>
+        </li>
+        <li>
+          <span class="label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/joshuazbl/" target="_blank" rel="noopener">linkedin.com/in/joshuazbl</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="side-block" aria-labelledby="skills-h">
+      <h2 id="skills-h">Skills</h2>
+      <ul class="tags">
+        <li>HTML &amp; CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>Python</li>
+        <li>Kotlin</li>
+        <li>MySQL</li>
+        <li>MongoDB</li>
+        <li>Git &amp; GitHub</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </section>
+
+    <section class="side-block" aria-labelledby="lang-h">
+      <h2 id="lang-h">Languages</h2>
+      <ul class="plain-list">
+        <li>English <small>(fluent)</small></li>
+        <li>Filipino <small>(native)</small></li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main" id="main">
+
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section-title" id="about-h">About me</h2>
+      <p class="about">
+        IT student at the University of Pangasinan who builds web and mobile apps,
+        from the interface down to the database. I've shipped academic projects in
+        JavaScript, PHP, Python, and Kotlin, and I'm looking for an internship where
+        I can contribute to real products and keep learning from an experienced team.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="edu-h">
+      <h2 class="section-title" id="edu-h">Education</h2>
+      <ul class="timeline">
+        <li>
+          <h3>Bachelor of Science in Information Technology Major in Business Informatics</h3>
+          <p class="meta">2023 – Present</p>
+          <p>University of Pangasinan, Dagupan City</p>
+        </li>
+        <li>
+          <h3>Senior High School</h3>
+          <p class="meta">2021 – 2023</p>
+          <p>Saint Albert the Great School, University of Pangasinan</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="exp-h">
+      <h2 class="section-title" id="exp-h">Experience</h2>
+      <ul class="timeline">
+        <li>
+          <h3>Student Developer</h3>
+          <p class="meta">Academic projects · 2024 – Present</p>
+          <p>
+            Built web and mobile applications end to end: designed interfaces,
+            wrote backend logic, and modeled MySQL and MongoDB databases.
+            Collaborated in teams using Git and GitHub for version control.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="proj-h">
+      <h2 class="section-title" id="proj-h">Projects</h2>
+      <div class="projects">
+
+        <!-- TODO: replace each dashed description with 1–2 sentences:
+             what it does + what YOU built. Add a real repo link or delete the <a>. -->
+
+        <article class="project">
+          <h3>BlockBlitz</h3>
+          <p class="todo">A game where you need to match blocks</p>
+          <ul class="stack"><li>Python</li></ul>
+          <a href="https://github.com/jtheicon" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+
+        <article class="project">
+          <h3>Sual Municipal Hall Appoinment App</h3>
+          <p class="todo">A app where you can book a online appointment for more convenience</p>
+          <ul class="stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <a href="https://github.com/jtheicon" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+
+        <article class="project">
+          <h3>CueHall</h3>
+          <p class="todo">A app where you can book a table for a Billiard Table online</p>
+          <ul class="stack"><li>Kotlin</li><li>MongoDB</li></ul>
+          <a href="https://github.com/jtheicon" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+
+        <article class="project">
+          <h3>Memory Card Game</h3>
+          <p class="todo">A game that allows you to match the things randomly</p>
+          <ul class="stack"><li>Kotlin</li><li>MySQL</li></ul>
+          <a href="https://github.com/jtheicon" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TODO: fill in real certifications, or delete this whole section until you have one. -->
+    <section class="section" aria-labelledby="cert-h">
+      <h2 class="section-title" id="cert-h">Certifications &amp; achievements</h2>
+      <ul class="timeline">
+        <li>
+          <h3 class="todo">Certification name</h3>
+          <p class="meta">2025</p>
+          <p class="todo">Issuing organization</p>
+        </li>
+        <li>
+          <h3 class="todo">Academic achievement</h3>
+          <p class="meta">2024</p>
+          <p class="todo">One line on what you earned and why.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="connect-h">
+      <h2 class="section-title" id="connect-h">Let's connect</h2>
+      <div class="cta">
+        <p>
+          I'm open to internships, collaborations, and projects where I can grow
+          as an IT professional. The fastest way to reach me is email.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:joav.zabala.up@phinmaed.com">Email me</a>
+          <a class="btn" href="https://linkedin.com/in/joshuazbl" target="_blank" rel="noopener">LinkedIn</a>
+          <button class="btn no-print" type="button" onclick="window.print()">Save as PDF</button>
         </div>
+      </div>
+    </section>
 
-        <div class="sidebar-section">
-            <h2>Contact</h2>
-
-            <div class="contact-item">
-                <strong>Email</strong>
-                joav.zabala.up@phinmaed.com
-            </div>
-
-            <div class="contact-item">
-                <strong>Phone</strong>
-                +63 976 1500 183
-            </div>
-
-            <div class="contact-item">
-                <strong>Location</strong>
-                Dagupan City, Pangasinan, Philippines
-            </div>
-
-            <div class="contact-item">
-                <strong>GitHub</strong>
-                github.com/jtheicon
-            </div>
-
-            <div class="contact-item">
-                <strong>LinkedIn</strong>
-                linkedin.com/in/joshuazabala
-            </div>
-        </div>
-
-        <div class="sidebar-section">
-            <h2>Skills</h2>
-
-            <ul class="skills">
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Kotlin</li>
-                <li>MySQL</li>
-                <li>Git & GitHub</li>
-                <li>UI/UX Design</li>
-            </ul>
-        </div>
-
-        <div class="sidebar-section">
-            <h2>Languages</h2>
-
-            <ul class="skills">
-                <li>English</li>
-                <li>Filipino</li>
-            </ul>
-        </div>
-
-    </aside>
-
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-        <!-- ABOUT -->
-        <section class="section">
-
-            <h2 class="section-title">About Me</h2>
-
-            <p class="about">
-                I am a motivated and responsible student with a strong interest in technology and continuous learning.
-I have experience working on academic projects involving web development, system design, and networking.
-I am willing to learn new skills, work collaboratively with others, and take on new challenges.
-I am organized, adaptable, and committed to completing tasks efficiently and to the best of my ability.
-            </p>
-
-        </section>
-
-
-        <!-- EDUCATION -->
-        <section class="section">
-
-            <h2 class="section-title">Education</h2>
-
-            <div class="timeline-item">
-
-                <h3>Bachelor of Science in Information Technology</h3>
-
-                <div class="date">
-                    2023 – Present
-                </div>
-
-                <p>
-                    University of Pangasinan<br>
-                    Dagupan City, Philippines
-                </p>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <h3>Saint Albert the Great School</h3>
-
-                <div class="date">
-                    2021 – 2023
-                </div>
-
-                <p>
-                    University of Pangasinan<br>
-                    Philippines
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- EXPERIENCE -->
-        <section class="section">
-
-            <h2 class="section-title">Experience</h2>
-
-            <div class="timeline-item">
-
-                <h3>Student Developer</h3>
-
-                <div class="date">
-                    Academic Projects | 2024 – Present
-                </div>
-
-                <p>
-                    Developed web and mobile applications as part of academic
-                    projects. Worked with frontend interfaces, backend logic,
-                    databases, and system functionality.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS -->
-        <section class="section">
-
-            <h2 class="section-title">Projects</h2>
-
-            <div class="projects">
-
-                <div class="project-card">
-
-                    <h3>BlockBLitz</h3>
-
-                    <p>
-                        Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                        Python
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>LapShowdown</h3>
-
-                    <p>
-                       Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                        HTML , CSS , JavaScript
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>CueHall</h3>
-
-                    <p>
-                        Lorem ipsum
-                    </p>
-
-                    <div class="tech">
-                       Kotlin, MongoDB
-                    </div>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>Sup Brew</h3>
-
-                    <p>
-                        Lorem Ipsum
-                    </p>
-
-                    <div class="tech">
-                        Kotlin, MySQL
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CERTIFICATIONS -->
-        <section class="section">
-
-            <h2 class="section-title">Certifications & Achievements</h2>
-
-            <div class="timeline-item">
-
-                <h3>Certification Name</h3>
-
-                <div class="date">
-                    2025
-                </div>
-
-                <p>
-                    Issuing Organization
-                </p>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <h3>Academic Achievement</h3>
-
-                <div class="date">
-                    2024
-                </div>
-
-                <p>
-                    Description of achievement or award.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-        <section class="section">
-
-            <h2 class="section-title">Let's Connect</h2>
-
-            <div class="contact-box">
-
-                <p>
-                    I am open to internship opportunities, collaborations,
-                    and opportunities to grow as an IT professional.
-                </p>
-
-                <p>
-                    <strong>Email:</strong>
-                    <a href="mailto:your@email.com">
-                        your@email.com
-                    </a>
-                </p>
-
-                <p>
-                    <strong>GitHub:</strong>
-                    <a href="#">
-                        github.com/yourusername
-                    </a>
-                </p>
-
-                <p>
-                    <strong>LinkedIn:</strong>
-                    <a href="#">
-                        linkedin.com/in/yourusername
-                    </a>
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
+  </main>
 </div>
+
+<script>
+  // Stagger index for skill tags, timeline items and project cards
+  document.querySelectorAll('.tags, .timeline, .projects').forEach(function (group) {
+    Array.prototype.forEach.call(group.children, function (el, i) {
+      el.style.setProperty('--i', i);
+    });
+  });
+
+  // Scroll reveal for main sections
+  var sections = document.querySelectorAll('.main .section');
+  sections.forEach(function (s) { s.classList.add('reveal'); });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target); // animate once, then leave it alone
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(function (s) { io.observe(s); });
+  } else {
+    sections.forEach(function (s) { s.classList.add('visible'); });
+  }
+
+  // Printing: show everything even if not scrolled to yet
+  window.addEventListener('beforeprint', function () {
+    sections.forEach(function (s) { s.classList.add('visible'); });
+  });
+</script>
 
 </body>
 </html>
-```
